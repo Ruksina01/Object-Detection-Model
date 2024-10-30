@@ -14,7 +14,7 @@ This project implements an object detection and counting system using deep learn
 6. [Making Predictions](#making-predictions)
 7. [Results](#results)
 
-## Prerequisites 🛠️
+### 1. Prerequisites 🛠️
 
 Ensure you have the following software and libraries installed:
 
@@ -41,25 +41,25 @@ Ensure you have the following software and libraries installed:
 ### 2. Exploring the Dataset
 - Load the dataset using a data analysis library (e.g., Pandas in Python).
 - Inspect the first few rows to understand its structure:
-  ```python
+  ```  python
   import pandas as pd
 
   # Load the dataset
   data = pd.read_csv('path/to/your/dataset.csv')
-
   # Display the first few rows
   print(data.head())
+  ```
 
-
-## Dataset Preparation 📁
+### 2. Dataset Preparation 📁
 
 1. **Dataset Structure**:
    - Organize your dataset in the following structure:
 
 2. **Data Annotation**:
    - Each label file should contain the object classes in YOLO format (class_id x_center y_center width height).
+     
 
-## Data Preprocessing 🔄
+### 3. Data Preprocessing 🔄
 
 1. **Load and Resize Images**:
    - Load images and resize them to the input size required by your model (e.g., 640x640 for YOLO).
@@ -81,7 +81,8 @@ Ensure you have the following software and libraries installed:
      ```bash
      savingsplitdataset.ipynb
      ```
-## YAML File Creation 📄
+     
+### 4. YAML File Creation 📄
 
 Create a YAML file (e.g., `dataset.yaml`) to define your dataset paths and classes. Here’s an example structure:
 
@@ -102,7 +103,7 @@ names:
   7: 'Pexels-Zaborski'
 ```
 
-## Training the Model 🏋️‍♀️
+### 5. Training the Model 🏋️‍♀️
 
 1. **Load the Model:**
    - Choose a pre-trained model (e.g., YOLOv8, Yolov11, or any) and load it
@@ -121,7 +122,7 @@ names:
      python train.py --img 640 --batch 16 --epochs 50 --data dataset.yaml --weights yolov5s.pt
      ```
 
-### Making Predictions 🎯
+### 6. Making Predictions 🎯
 
 1. **Load the Model:**
    - Load the trained weights of your model for inference.
@@ -133,7 +134,7 @@ names:
     python detect.py --weights path/to/trained_weights.pt --img 640 --conf 0.25 --source path/to/image_or_video
     ```
     
-### Results 📈
+### 7. Results 📈
 After running predictions, visualize the results by drawing bounding boxes and displaying counts of detected objects.
 
 1. **Visualize Predictions:**
