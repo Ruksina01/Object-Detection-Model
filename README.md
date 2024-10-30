@@ -25,6 +25,32 @@ Ensure you have the following software and libraries installed:
 - YOLOv5 (or your chosen model)
 - Additional dependencies (as specified in the `requirements.txt` file)
 
+# Dataset Preparation Guide
+
+## Dataset Overview
+- **Source**: [Kaggle: PESMOD Data](https://www.kaggle.com/datasets/ruksinakhan/pesmod-data)
+- **Description**: The dataset contains data related to PESMOD, which can be used for various analytical and modeling purposes.
+
+## Steps for Dataset Preparation
+
+### 1. Downloading the Dataset
+- Go to the provided Kaggle link.
+- Sign in to your Kaggle account (or create one if you don’t have it).
+- Download the dataset files to your local machine.
+
+### 2. Exploring the Dataset
+- Load the dataset using a data analysis library (e.g., Pandas in Python).
+- Inspect the first few rows to understand its structure:
+  ```python
+  import pandas as pd
+
+  # Load the dataset
+  data = pd.read_csv('path/to/your/dataset.csv')
+
+  # Display the first few rows
+  print(data.head())
+
+
 ## Dataset Preparation 📁
 
 1. **Dataset Structure**:
@@ -45,8 +71,16 @@ Ensure you have the following software and libraries installed:
    - Apply data augmentation techniques such as flipping, rotation, or color jitter to increase dataset diversity.
 
 4. **Split Dataset**:
-   - Split the dataset into training, validation, and testing sets (e.g., 70% training, 15% validation, 15% testing).
-
+   - **Purpose**: To prepare the dataset for training machine learning models by dividing it into three distinct sets:
+   - **Training Set**: Used to train the model (typically 70% of the dataset).
+   - **Validation Set**: Used to tune the model’s hyperparameters (typically 15% of the dataset).
+   - **Testing Set**: Used to evaluate the model's performance (typically 15% of the dataset).
+     
+   - Execute the script to see how it performs.
+   - You can run the file using the command line:
+     ```bash
+     savingsplitdataset.ipynb
+     ```
 ## YAML File Creation 📄
 
 Create a YAML file (e.g., `dataset.yaml`) to define your dataset paths and classes. Here’s an example structure:
