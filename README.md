@@ -27,9 +27,15 @@ Ensure you have the following software and libraries installed:
 
 # Dataset Preparation Guide
 
-## Dataset Overview
+## PESMOD (PExels Small Moving Object Detection) Dataset
 - **Source**: [Kaggle: PESMOD Data](https://www.kaggle.com/datasets/ruksinakhan/pesmod-data)
-- **Description**: The dataset contains data related to PESMOD, which can be used for various analytical and modeling purposes.
+- **Description**:  The **PESMOD** dataset consists of high-resolution aerial images with manually labeled moving objects, specifically designed to evaluate small moving
+  object detection methods. This dataset offers a reliable benchmark for testing object detection algorithms in challenging aerial settings.
+
+   ## Overview
+- **Dataset**: High-resolution aerial images with TXT label files
+- **Purpose**: Moving object detection and tracking evaluation
+- **Annotations**: Each moving object is labeled per frame in a corresponding TXT file.
 
 ## Steps for Dataset Preparation
 
@@ -53,10 +59,19 @@ Ensure you have the following software and libraries installed:
 ### 2. Dataset Preparation 📁
 
 1. **Dataset Structure**:
-   - Organize your dataset in the following structure:
+   - The dataset is organized into **images** and **labels** folders:
+   1. **Images**: Each sequence contains individual frames stored as high-resolution images.
+   2. **Labels**: Each frame has a corresponding `.txt` file with annotations, specifying bounding boxes for each moving object. Each line in the `.txt` file represents
+     one object with coordinates in the format:
 
 2. **Data Annotation**:
    - Each label file should contain the object classes in YOLO format (class_id x_center y_center width height).
+     ```
+     <class_id> <x_center> <y_center> <width> <height>
+     ```
+   - **class_id**: Identifier for the object class (e.g., 0 for moving object).
+   - **x_center, y_center**: Normalized center coordinates of the bounding box.
+   - **width, height**: Normalized width and height of the bounding box.
      
 
 ### 3. Data Preprocessing 🔄
@@ -77,7 +92,6 @@ Ensure you have the following software and libraries installed:
    - **Testing Set**: Used to evaluate the model's performance (typically 15% of the dataset).
      
    - Execute the script to see how it performs.
-   - You can run the file using the command line:
      ```bash
      savingsplitdataset.ipynb
      ```
